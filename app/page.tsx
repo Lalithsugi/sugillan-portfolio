@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 export default function Home() {
   return (
     <main>
-      <Image src="/images/avatar.png" alt="Profile" className="w-32 h-32" />
+      <Image src="/images/avatar.png" alt="Profile" width={128} height={128} className="w-32 h-32" />
       <Hero />
       <About />
       <Experience />
