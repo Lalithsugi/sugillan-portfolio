@@ -2,10 +2,16 @@
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Contact() {
   const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     console.log('Form submitted:', data);
     reset();
   };
