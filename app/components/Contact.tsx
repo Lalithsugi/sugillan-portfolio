@@ -1,21 +1,7 @@
 'use client';
-import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export default function Contact() {
-  const { register, handleSubmit, reset } = useForm<FormData>();
-
-  const onSubmit = async (data: FormData) => {
-    console.log('Form submitted:', data);
-    reset();
-  };
-
   return (
     <section id="contact" className="py-16 px-4 bg-gray-100 dark:bg-gray-800">
       <motion.div
@@ -24,14 +10,15 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
         className="max-w-xl mx-auto space-y-6"
       >
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input {...register('name')} placeholder="Name" className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200" />
-          <input {...register('email')} placeholder="Email" className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200" />
-          <textarea {...register('message')} placeholder="Message" className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 h-32" />
-          <motion.button type="submit" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition">
-            Send Message
-          </motion.button>
-        </form>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+          Contact Me
+        </h2>
+        {/* Static Contact Details */}
+        <div className="mt-6 text-center text-gray-600 dark:text-gray-400">
+          <p className="mb-2">📞 +91 8925402857</p>
+          <p className="mb-2">📧 <a href="mailto:lalithrajnps@gmail.com" className="underline">lalithrajnps@gmail.com</a></p>
+          <p>📍 Velachery, Chennai, India</p>
+        </div>
       </motion.div>
     </section>
   );
